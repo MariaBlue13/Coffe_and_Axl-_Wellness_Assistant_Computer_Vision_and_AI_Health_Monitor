@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import ast, sys; files = ['screens/login_screen.py', 'screens/dashboard_utilizator.py', 'screens/dashboard_admin.py', 'components/wellness_popup.py', 'main.py']; [print\\(f + ' OK'\\) if ast.parse\\(open\\(f\\).read\\(\\)\\) else None for f in files]\")",
+      "Bash(python -c ' *)"
+    ]
+  }
+}

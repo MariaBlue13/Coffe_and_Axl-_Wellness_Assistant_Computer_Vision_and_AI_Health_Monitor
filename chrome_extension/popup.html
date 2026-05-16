@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            width: 340px;
+            font-family: Arial, sans-serif;
+            background: #1A1A1A;
+            color: white;
+        }
+        .header {
+            background: #F9A825;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #1A1A1A;
+        }
+        .section { padding: 12px 16px; }
+        .label {
+            font-size: 11px;
+            color: #AAAAAA;
+            margin-bottom: 4px;
+            margin-top: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            background: #333;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        button {
+            width: 100%;
+            padding: 9px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 6px;
+        }
+        .btn-primary {
+            background: #F9A825;
+            color: #1A1A1A;
+        }
+        .btn-block {
+            background: #E53935;
+            color: white;
+        }
+        .btn-limit {
+            background: #F57F17;
+            color: white;
+        }
+        .btn-logout {
+            background: #333;
+            color: #AAAAAA;
+            margin-top: 4px;
+        }
+        .user-bar {
+            background: #2A2A2A;
+            padding: 8px 16px;
+            font-size: 11px;
+            color: #4CAF50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .rules-list {
+            padding: 0 16px 8px;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+        .rule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 8px;
+            margin-bottom: 3px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .rule-blocked {
+            background: #4A0000;
+            border-left: 3px solid #E53935;
+        }
+        .rule-limited {
+            background: #3A2800;
+            border-left: 3px solid #F57F17;
+        }
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 0 4px;
+            width: auto;
+            margin-top: 0;
+        }
+        .status {
+            padding: 8px 16px;
+            font-size: 11px;
+            color: #4CAF50;
+            border-top: 1px solid #333;
+        }
+        hr { border: none; border-top: 1px solid #333; }
+        #login-section, #main-section {
+            display: none;
+        }
+        .error { color: #E53935 !important; }
+    </style>
+</head>
+<body>
+
+<div class="header">Coffee &amp; Axl Monitor</div>
+
+<!-- Login -->
+<div id="login-section">
+    <div class="section">
+        <div class="label">Username</div>
+        <input type="text"
+               id="login-username"
+               placeholder="username">
+        <div class="label">Parola</div>
+        <input type="password"
+               id="login-password"
+               placeholder="........">
+        <button id="btn-login"
+                class="btn-primary">
+            Conecteaza-te
+        </button>
+    </div>
+    <div class="status" id="login-status">
+        Introdu datele contului Coffee &amp; Axl
+    </div>
+</div>
+
+<!-- Main (dupa login) -->
+<div id="main-section">
+    <div class="user-bar">
+        <span id="user-info">
+            Conectat
+        </span>
+        <button id="btn-logout"
+                style="background:none;
+                       border:none;
+                       color:#888;
+                       cursor:pointer;
+                       font-size:11px;
+                       width:auto;
+                       margin-top:0;
+                       padding:4px 8px;">
+            Deconectare
+        </button>
+    </div>
+
+    <div class="section">
+        <div class="label">
+            Domeniu (ex: facebook.com)
+        </div>
+        <input type="text"
+               id="domain-input"
+               placeholder="facebook.com">
+        <div class="label">
+            Limita minute/zi (pentru limitat)
+        </div>
+        <input type="number"
+               id="limit-input"
+               value="30" min="1">
+        <button id="btn-block"
+                class="btn-block">
+            Adauga Blocat
+        </button>
+        <button id="btn-limit"
+                class="btn-limit">
+            Adauga Limitat
+        </button>
+    </div>
+
+    <hr>
+    <div class="label"
+         style="padding:8px 16px 4px">
+        Reguli active:
+    </div>
+    <div class="rules-list"
+         id="rules-list">
+    </div>
+
+    <hr>
+    <div class="status" id="main-status">
+        Monitor activ
+    </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
